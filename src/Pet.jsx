@@ -1,9 +1,9 @@
 const Pet = (props) => {
   return (
     <li>
-      <h1>{props.name}</h1>
-      <h2>{props.animal}</h2>
-      <h2>{props.breed}</h2>
+      <h2>{props.name}</h2>
+      <p>{props.animal}</p>
+      <p>{props.breed}</p>
     </li>
   );
 };

@@ -1,14 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Pet from "./Pet";
 
 const ANIMAL_OPTIONS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
   const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
+  const [breed, setBreed] = useState("");
+  const [pets, setPets] = useState([]);
+
+  const breedOptions = [];
+
+  useEffect(() => {
+    requestPets();
+  }, []);
+
+  async function requestPets(animal = "", location = "", breed = "") {
+    const res = await fetch(
+      `https://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+    );
+    const json = await res.json();
+    setPets(json.pets);
+  }
 
   return (
     <div className="search-params">
-      <form action="">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          requestPets(animal, location, breed);
+        }}
+      >
         <label htmlFor="location">
           Location
           <input
@@ -25,9 +47,30 @@ const SearchParams = () => {
               name="animal"
               id="animal"
               value={animal}
-              onChange={(e) => setAnimal(e.target.value)}
+              onChange={(e) => {
+                setAnimal(e.target.value);
+                setBreed("");
+              }}
             >
+              <option />
               {ANIMAL_OPTIONS.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label htmlFor="breed">
+            breed
+            <select
+              name="breed"
+              id="breed"
+              value={breed}
+              onChange={(e) => setBreed(e.target.value)}
+              disabled={breedOptions.length === 0}
+            >
+              <option />
+              {breedOptions.map((option) => (
                 <option key={option} value={option}>
                   {option}
                 </option>
@@ -37,6 +80,14 @@ const SearchParams = () => {
           <button>Submit</button>
         </label>
       </form>
+      {pets.map((pet) => (
+        <Pet
+          key={pet.id}
+          name={pet.name}
+          animal={pet.animal}
+          breed={pet.breed}
+        />
+      ))}
     </div>
   );
 };
