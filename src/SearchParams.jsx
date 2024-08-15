@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Pet from "./Pet";
+import { API_URL } from "./helpers/constants";
+import useBreedList from "./hooks/useBreedList";
 
 const ANIMAL_OPTIONS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -8,8 +10,7 @@ const SearchParams = () => {
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
-
-  const breedOptions = [];
+  const [breedOptions] = useBreedList(animal);
 
   useEffect(() => {
     requestPets();
@@ -17,7 +18,7 @@ const SearchParams = () => {
 
   async function requestPets(animal = "", location = "", breed = "") {
     const res = await fetch(
-      `https://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+      `${API_URL}/pets?animal=${animal}&location=${location}&breed=${breed}`
     );
     const json = await res.json();
     setPets(json.pets);
@@ -80,14 +81,17 @@ const SearchParams = () => {
           <button>Submit</button>
         </label>
       </form>
-      {pets.map((pet) => (
-        <Pet
-          key={pet.id}
-          name={pet.name}
-          animal={pet.animal}
-          breed={pet.breed}
-        />
-      ))}
+
+      <ul>
+        {pets.map((pet) => (
+          <Pet
+            key={pet.id}
+            name={pet.name}
+            animal={pet.animal}
+            breed={pet.breed}
+          />
+        ))}
+      </ul>
     </div>
   );
 };
