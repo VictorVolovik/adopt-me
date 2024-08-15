@@ -1,5 +1,11 @@
-* {
+html {
   box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
   color: #333;
 }
 
@@ -32,7 +38,8 @@ body {
   width: 715px;
   padding: 15px;
   float: left;
-  margin-bottom: 25px;
+  margin: 0 0 25px;
+  list-style: none;
 }
 
 .details {
@@ -47,11 +54,19 @@ body {
 
 .pet {
   width: 100%;
-  height: 130px;
+  height: 152px;
   display: block;
   overflow: hidden;
-  margin: 25px 0;
   border-bottom: #333 2px solid;
+}
+
+.pet:last-child {
+  border: none;
+}
+
+.pet a {
+  display: flex;
+  padding: 25px 0;
 }
 
 .pet img {
