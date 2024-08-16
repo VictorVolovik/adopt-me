@@ -1,4 +1,5 @@
 import { IMAGES_URL } from "./helpers/constants";
+import { Link } from "react-router-dom";
 
 const Pet = ({ id, name, animal, breed, images, location }) => {
   let hero = `${IMAGES_URL}/pets/none.jpg`;
@@ -9,7 +10,7 @@ const Pet = ({ id, name, animal, breed, images, location }) => {
 
   return (
     <li className="pet">
-      <a href={`/details/${id}`}>
+      <Link to={`/details/${id}`}>
         <div className="image-container">
           <img src={hero} alt={name} />
         </div>
@@ -19,7 +20,7 @@ const Pet = ({ id, name, animal, breed, images, location }) => {
             {animal} — {breed} — {location}
           </p>
         </div>
-      </a>
+      </Link>
     </li>
   );
 };
