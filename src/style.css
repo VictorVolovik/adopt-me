@@ -380,3 +380,8 @@ form .pet {
 .mini .loader {
   font-size: 34px;
 }
+
+h2.error, h2.error a {
+  color: #ad343e;
+  text-align: center;
+}
