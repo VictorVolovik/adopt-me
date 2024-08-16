@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ANIMAL_OPTIONS, API_URL } from "./helpers/constants";
-import useBreedList from "./hooks/useBreedList";
 import Results from "./Results";
+import useBreedList from "./hooks/useBreedList";
 
 const SearchParams = () => {
   const [location, setLocation] = useState("");
