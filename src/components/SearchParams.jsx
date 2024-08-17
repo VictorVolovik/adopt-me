@@ -20,8 +20,9 @@ const SearchParams = () => {
   const pets = results?.data?.pets ?? [];
 
   return (
-    <div className="search-params">
+    <div className="my-0 mx-auto w-11/12">
       <form
+        className="mb-10 flex flex-col items-center justify-center rounded-lg bg-gray-200 p-10 shadow-lg"
         onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData(e.target);
@@ -41,46 +42,51 @@ const SearchParams = () => {
         <label htmlFor="location">
           Location
           <input
+            className="search-input"
             name="location"
             id="location"
             type="text"
             placeholder="Location"
           />
-          <label htmlFor="animal">
-            Animal
-            <select
-              name="animal"
-              id="animal"
-              value={animal}
-              onChange={(e) => {
-                setAnimal(e.target.value);
-              }}
-            >
-              <option />
-              {ANIMAL_OPTIONS.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label htmlFor="breed">
-            breed
-            <select
-              name="breed"
-              id="breed"
-              disabled={breedOptions.length === 0}
-            >
-              <option />
-              {breedOptions.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-          </label>
-          <button>Submit</button>
         </label>
+        <label htmlFor="animal">
+          Animal
+          <select
+            className="search-input"
+            name="animal"
+            id="animal"
+            value={animal}
+            onChange={(e) => {
+              setAnimal(e.target.value);
+            }}
+          >
+            <option />
+            {ANIMAL_OPTIONS.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label htmlFor="breed">
+          Breed
+          <select
+            className="search-input grayed-out-disabled"
+            name="breed"
+            id="breed"
+            disabled={breedOptions.length === 0}
+          >
+            <option />
+            {breedOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button className="rounded border-none bg-orange-500 px-6 py-2 text-white hover:opacity-50">
+          Submit
+        </button>
       </form>
 
       <Results pets={pets} />

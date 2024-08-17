@@ -9,12 +9,12 @@ const Pet = ({ id, name, animal, breed, images, location }) => {
   }
 
   return (
-    <li className="pet">
-      <Link to={`/details/${id}`}>
-        <div className="image-container">
-          <img src={hero} alt={name} />
+    <li className="relative block">
+      <Link to={`/details/${id}`} className="flex h-full">
+        <div className="flex h-full">
+          <img className="object-cover" src={hero} alt={name} />
         </div>
-        <div className="info">
+        <div className="absolute bottom-0 left-0 w-full bg-gradient-to-tr from-white to-transparent p-2">
           <h2>{name}</h2>
           <p>
             {animal} — {breed} — {location}
