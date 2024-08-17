@@ -1,4 +1,4 @@
-import { IMAGES_URL } from "./helpers/constants";
+import { IMAGES_URL } from "../helpers/constants";
 import { Link } from "react-router-dom";
 
 const Pet = ({ id, name, animal, breed, images, location }) => {

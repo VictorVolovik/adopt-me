@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { IMAGES_URL } from "./helpers/constants";
+import { IMAGES_URL } from "../helpers/constants";
 
 class Carousel extends Component {
   state = {

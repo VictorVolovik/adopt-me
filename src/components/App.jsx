@@ -6,7 +6,7 @@ import {
   DEBUG,
   DEFAULT_CACHE_TIME,
   DEFAULT_STALE_TIME,
-} from "./helpers/constants";
+} from "../helpers/constants";
 import { StrictMode } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Details from "./Details";
