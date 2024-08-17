@@ -27,7 +27,7 @@ const App = () => {
 
   return (
     <div
-      className="m-0 p-0"
+      className="m-0 min-h-screen p-0"
       style={{
         background: `url(${IMAGES_URL}/pets/wallpaperB.jpg)`,
       }}

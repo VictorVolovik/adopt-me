@@ -25,7 +25,7 @@ const Details = () => {
   const pet = results.data.pets[0];
 
   return (
-    <div className="details">
+    <div className="my-0 mx-auto flex w-11/12 flex-col gap-4 rounded-lg bg-gray-200 p-4 pb-4">
       <Carousel images={pet.images} />
       <div>
         <h2>{pet.name}</h2>
@@ -33,22 +33,32 @@ const Details = () => {
           {pet.animal} — {pet.breed} - {pet.city},{pet.state}
         </p>
         <p>{pet.description}</p>
-        <button onClick={() => setShowModal(true)}>Adopt {pet.name}</button>
+        <button className="button mt-4" onClick={() => setShowModal(true)}>
+          Adopt {pet.name}
+        </button>
 
         {showModal ? (
           <Modal>
-            <div>
-              <h1>Would you like to adopt {pet.name}?</h1>
-              <div className="buttons">
-                <button
-                  onClick={() => {
-                    setAdoptedPet(pet);
-                    navigate("/");
-                  }}
-                >
-                  Yes
-                </button>
-                <button onClick={() => setShowModal(false)}>No</button>
+            <div className="fixed flex h-full w-full items-center justify-center bg-slate-600 bg-opacity-70">
+              <div className="rounded-lg bg-gray-800 p-8 text-white">
+                <h1>Would you like to adopt {pet.name}?</h1>
+                <div className="mt-4 flex justify-between">
+                  <button
+                    className="button"
+                    onClick={() => {
+                      setAdoptedPet(pet);
+                      navigate("/");
+                    }}
+                  >
+                    Yes
+                  </button>
+                  <button
+                    className="button"
+                    onClick={() => setShowModal(false)}
+                  >
+                    No
+                  </button>
+                </div>
               </div>
             </div>
           </Modal>

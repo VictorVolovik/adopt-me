@@ -84,9 +84,7 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <button className="rounded border-none bg-orange-500 px-6 py-2 text-white hover:opacity-50">
-          Submit
-        </button>
+        <button className="button">Submit</button>
       </form>
 
       <Results pets={pets} />
