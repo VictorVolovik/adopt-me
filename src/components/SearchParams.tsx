@@ -11,14 +11,19 @@ import Results from "./Results";
 import useBreedList from "../hooks/useBreedList";
 import fetchSearch from "../queries/fetchSearch";
 import AdoptedPetContext from "./AdoptedPetContext";
+import { Animal } from "../types/models";
 
 const SearchParams = () => {
-  const [requestParams, setRequestParams] = useState({
+  const [requestParams, setRequestParams] = useState<{
+    location: string;
+    animal: Animal | "";
+    breed: string;
+  }>({
     location: "",
     animal: "",
     breed: "",
   });
-  const [animal, setAnimal] = useState("");
+  const [animal, setAnimal] = useState<Animal | "">("");
   const [breedOptions] = useBreedList(animal);
   const [adoptedPet] = useContext(AdoptedPetContext);
   const [isPending, startTransition] = useTransition();
@@ -37,11 +42,11 @@ const SearchParams = () => {
         className="mb-10 flex flex-col items-center justify-center rounded-lg bg-gray-200 p-10 shadow-lg"
         onSubmit={(e) => {
           e.preventDefault();
-          const formData = new FormData(e.target);
+          const formData = new FormData(e.currentTarget);
           const obj = {
-            location: formData.get("location") ?? "",
-            animal: formData.get("animal") ?? "",
-            breed: formData.get("breed") ?? "",
+            location: formData.get("location")?.toString() ?? "",
+            animal: (formData.get("animal")?.toString() as Animal) ?? "",
+            breed: formData.get("breed")?.toString() ?? "",
           };
           startTransition(() => {
             setRequestParams(obj);
@@ -71,7 +76,7 @@ const SearchParams = () => {
             id="animal"
             value={animal}
             onChange={(e) => {
-              setAnimal(e.target.value);
+              setAnimal(e.target.value as Animal);
             }}
           >
             <option />

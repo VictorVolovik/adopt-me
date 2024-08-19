@@ -1,13 +1,16 @@
 // @see https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary
-import { Component } from "react";
+import { Component, ErrorInfo, ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-class ErrorBoundary extends Component {
+class ErrorBoundary extends Component<{
+  children: ReactNode;
+  errorComponent: ReactNode;
+}> {
   state = { hasError: false };
   static getDerivedStateFromError() {
     return { hasError: true };
   }
-  componentDidCatch(error, info) {
+  componentDidCatch(error: Error, info: ErrorInfo) {
     console.error("ErrorBoundary caught an error", error, info);
   }
   render() {

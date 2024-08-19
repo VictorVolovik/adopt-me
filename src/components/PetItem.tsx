@@ -1,7 +1,24 @@
 import { IMAGES_URL } from "../helpers/constants";
 import { Link } from "react-router-dom";
+import { Animal } from "../types/models";
 
-const Pet = ({ id, name, animal, breed, images, location }) => {
+interface PetItemProps {
+  id: number;
+  name: string;
+  animal: Animal;
+  breed: string;
+  images: string[];
+  location: string;
+}
+
+const PetItem = ({
+  id,
+  name,
+  animal,
+  breed,
+  images,
+  location,
+}: PetItemProps) => {
   let hero = `${IMAGES_URL}/pets/none.jpg`;
 
   if (images.length) {
@@ -25,4 +42,4 @@ const Pet = ({ id, name, animal, breed, images, location }) => {
   );
 };
 
-export default Pet;
+export default PetItem;

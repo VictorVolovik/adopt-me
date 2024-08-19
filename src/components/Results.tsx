@@ -1,13 +1,14 @@
-import Pet from "./Pet";
+import { Pet } from "../types/models";
+import PetItem from "./PetItem";
 
-const Results = ({ pets }) => {
+const Results = ({ pets }: { pets: Pet[] }) => {
   return (
     <ul className="grid grid-cols-1 gap-4 pb-4 sm:grid-cols-2 lg:grid-cols-3">
       {!pets.length ? (
         <h2>No Pets Found</h2>
       ) : (
         pets.map((pet) => (
-          <Pet
+          <PetItem
             key={pet.id}
             id={pet.id}
             name={pet.name}

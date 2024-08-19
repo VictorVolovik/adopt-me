@@ -9,10 +9,15 @@ import AdoptedPetContext from "./AdoptedPetContext";
 const Modal = lazy(() => import("./Modal"));
 
 const Details = () => {
+  const { id } = useParams();
+
+  if (!id) {
+    throw new Error("No pet id prodided");
+  }
+
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const [, setAdoptedPet] = useContext(AdoptedPetContext);
-  const { id } = useParams();
   const results = useQuery(["details", id], fetchPet);
 
   if (results.isLoading) {
@@ -23,7 +28,11 @@ const Details = () => {
     );
   }
 
-  const pet = results.data.pets[0];
+  const pet = results?.data?.pets[0];
+
+  if (!pet) {
+    throw new Error("No pet found");
+  }
 
   return (
     <div className="details my-0 mx-auto flex w-11/12 flex-col  gap-4 rounded-lg bg-gray-200 p-4 pb-4">
@@ -81,10 +90,10 @@ function ErrorMessage() {
   );
 }
 
-function DetailsErrorBoundary(props) {
+function DetailsErrorBoundary() {
   return (
     <ErrorBoundary errorComponent={<ErrorMessage />}>
-      <Details {...props} />
+      <Details />
     </ErrorBoundary>
   );
 }

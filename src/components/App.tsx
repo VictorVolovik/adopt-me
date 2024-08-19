@@ -10,6 +10,7 @@ import {
 import { StrictMode } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import AdoptedPetContext from "./AdoptedPetContext";
+import { Pet } from "../types/models";
 
 const Details = lazy(() => import("./Details"));
 const SearchParams = lazy(() => import("./SearchParams"));
@@ -24,7 +25,7 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
-  const adoptedPetHook = useState(null);
+  const adoptedPetHook = useState<Pet | null>(null);
 
   return (
     <div
@@ -64,7 +65,13 @@ const App = () => {
 };
 
 const container = document.getElementById("root");
+
+if (!container) {
+  throw new Error("Unable to find app container!");
+}
+
 const root = createRoot(container);
+
 root.render(
   process.env.NODE_ENV === "development" && DEBUG ? (
     <StrictMode>
