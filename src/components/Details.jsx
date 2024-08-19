@@ -26,7 +26,7 @@ const Details = () => {
   const pet = results.data.pets[0];
 
   return (
-    <div className="details my-0 mx-auto flex w-11/12 flex-col gap-4 rounded-lg bg-gray-200 p-4 pb-4">
+    <div className="details my-0 mx-auto flex w-11/12 flex-col  gap-4 rounded-lg bg-gray-200 p-4 pb-4">
       <Carousel images={pet.images} />
       <div className="pet">
         <h2>{pet.name}</h2>

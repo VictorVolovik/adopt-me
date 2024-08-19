@@ -25,7 +25,7 @@ class Carousel extends Component {
           src={images[active]}
           alt="animal hero"
         />
-        <div className="flex w-full gap-4">
+        <div className="flex h-fit w-full flex-wrap gap-4">
           {images.map((img, index) => (
             // eslint-disable-next-line
             <img
