@@ -30,7 +30,9 @@ class Carousel extends Component {
             // eslint-disable-next-line
             <img
               className={`h-20 rounded-full ${
-                index === active ? "border-2 border-solid border-red-500" : ""
+                index === active
+                  ? "outline outline-4 outline-offset-1 outline-red-500"
+                  : ""
               }`}
               key={img}
               src={img}

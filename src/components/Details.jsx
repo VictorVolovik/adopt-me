@@ -1,11 +1,12 @@
-import { useState, useContext } from "react";
+import { useState, useContext, lazy } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchPet from "../queries/fetchPet";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoudary";
-import Modal from "./Modal";
 import AdoptedPetContext from "./AdoptedPetContext";
+
+const Modal = lazy(() => import("./Modal"));
 
 const Details = () => {
   const [showModal, setShowModal] = useState(false);
@@ -25,9 +26,9 @@ const Details = () => {
   const pet = results.data.pets[0];
 
   return (
-    <div className="my-0 mx-auto flex w-11/12 flex-col gap-4 rounded-lg bg-gray-200 p-4 pb-4">
+    <div className="details my-0 mx-auto flex w-11/12 flex-col gap-4 rounded-lg bg-gray-200 p-4 pb-4">
       <Carousel images={pet.images} />
-      <div>
+      <div className="pet">
         <h2>{pet.name}</h2>
         <p>
           {pet.animal} — {pet.breed} - {pet.city},{pet.state}
