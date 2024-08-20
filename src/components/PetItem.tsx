@@ -27,8 +27,8 @@ const PetItem = ({
 
   return (
     <li className="relative block">
-      <Link to={`/details/${id}`} className="flex h-full">
-        <div className="flex h-full">
+      <Link to={`/details/${id}`} className="flex h-full w-full">
+        <div className="flex h-full  w-full">
           <img className="object-cover" src={hero} alt={name} />
         </div>
         <div className="absolute bottom-0 left-0 w-full bg-gradient-to-tr from-white to-transparent p-2">
