@@ -1,17 +1,12 @@
-import {
-  useState,
-  useContext,
-  useDeferredValue,
-  useMemo,
-  useTransition,
-} from "react";
+import { useState, useDeferredValue, useMemo, useTransition } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { ANIMAL_OPTIONS } from "../helpers/constants";
 import Results from "./Results";
 import useBreedList from "../hooks/useBreedList";
 import fetchSearch from "../queries/fetchSearch";
-import AdoptedPetContext from "./AdoptedPetContext";
-import { Animal } from "../types/models";
+import { Animal, Pet } from "../types/models";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux";
 
 const SearchParams = () => {
   const [requestParams, setRequestParams] = useState<{
@@ -25,7 +20,9 @@ const SearchParams = () => {
   });
   const [animal, setAnimal] = useState<Animal | "">("");
   const [breedOptions] = useBreedList(animal);
-  const [adoptedPet] = useContext(AdoptedPetContext);
+  const adoptedPet = useSelector<RootState, Pet | null>(
+    (store) => store.adoptedPet.value
+  );
   const [isPending, startTransition] = useTransition();
 
   const results = useQuery(["search", requestParams], fetchSearch);
