@@ -1,0 +1,312 @@
+// Vitest Snapshot v1
+
+exports[`renders correctly with no pets 1`] = `
+<DocumentFragment>
+  <ul
+    class="grid grid-cols-1 gap-4 pb-4 sm:grid-cols-2 lg:grid-cols-3"
+  >
+    <h2>
+      No Pets Found
+    </h2>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`renders correctly with some pets 1`] = `
+<DocumentFragment>
+  <ul
+    class="grid grid-cols-1 gap-4 pb-4 sm:grid-cols-2 lg:grid-cols-3"
+  >
+    <li
+      class="relative block"
+    >
+      <a
+        class="flex h-full w-full"
+        href="/details/1"
+      >
+        <div
+          class="flex h-full  w-full"
+        >
+          <img
+            alt="Luna"
+            class="object-cover"
+            data-testid="thumbnail"
+            src="http://pets-images.dev-apis.com/pets/dog25.jpg"
+          />
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-full bg-gradient-to-tr from-white to-transparent p-2"
+        >
+          <h2>
+            Luna
+          </h2>
+          <p>
+            dog — Havanese — Seattle, WA
+          </p>
+        </div>
+      </a>
+    </li>
+    <li
+      class="relative block"
+    >
+      <a
+        class="flex h-full w-full"
+        href="/details/2"
+      >
+        <div
+          class="flex h-full  w-full"
+        >
+          <img
+            alt="Charisse"
+            class="object-cover"
+            data-testid="thumbnail"
+            src="http://pets-images.dev-apis.com/pets/rabbit0.jpg"
+          />
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-full bg-gradient-to-tr from-white to-transparent p-2"
+        >
+          <h2>
+            Charisse
+          </h2>
+          <p>
+            rabbit — Havanese — Lexington, KY
+          </p>
+        </div>
+      </a>
+    </li>
+    <li
+      class="relative block"
+    >
+      <a
+        class="flex h-full w-full"
+        href="/details/3"
+      >
+        <div
+          class="flex h-full  w-full"
+        >
+          <img
+            alt="Maitilde"
+            class="object-cover"
+            data-testid="thumbnail"
+            src="http://pets-images.dev-apis.com/pets/rabbit1.jpg"
+          />
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-full bg-gradient-to-tr from-white to-transparent p-2"
+        >
+          <h2>
+            Maitilde
+          </h2>
+          <p>
+            rabbit — Lab — Dallas, TX
+          </p>
+        </div>
+      </a>
+    </li>
+    <li
+      class="relative block"
+    >
+      <a
+        class="flex h-full w-full"
+        href="/details/4"
+      >
+        <div
+          class="flex h-full  w-full"
+        >
+          <img
+            alt="Natalina"
+            class="object-cover"
+            data-testid="thumbnail"
+            src="http://pets-images.dev-apis.com/pets/rabbit2.jpg"
+          />
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-full bg-gradient-to-tr from-white to-transparent p-2"
+        >
+          <h2>
+            Natalina
+          </h2>
+          <p>
+            rabbit — Lab — Tampa, FL
+          </p>
+        </div>
+      </a>
+    </li>
+    <li
+      class="relative block"
+    >
+      <a
+        class="flex h-full w-full"
+        href="/details/5"
+      >
+        <div
+          class="flex h-full  w-full"
+        >
+          <img
+            alt="Michail"
+            class="object-cover"
+            data-testid="thumbnail"
+            src="http://pets-images.dev-apis.com/pets/reptile1.jpg"
+          />
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-full bg-gradient-to-tr from-white to-transparent p-2"
+        >
+          <h2>
+            Michail
+          </h2>
+          <p>
+            reptile — Havanese — Tuscaloosa, AL
+          </p>
+        </div>
+      </a>
+    </li>
+    <li
+      class="relative block"
+    >
+      <a
+        class="flex h-full w-full"
+        href="/details/6"
+      >
+        <div
+          class="flex h-full  w-full"
+        >
+          <img
+            alt="Gizela"
+            class="object-cover"
+            data-testid="thumbnail"
+            src="http://pets-images.dev-apis.com/pets/bird2.jpg"
+          />
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-full bg-gradient-to-tr from-white to-transparent p-2"
+        >
+          <h2>
+            Gizela
+          </h2>
+          <p>
+            bird — Havanese — Carol Stream, IL
+          </p>
+        </div>
+      </a>
+    </li>
+    <li
+      class="relative block"
+    >
+      <a
+        class="flex h-full w-full"
+        href="/details/7"
+      >
+        <div
+          class="flex h-full  w-full"
+        >
+          <img
+            alt="Laughton"
+            class="object-cover"
+            data-testid="thumbnail"
+            src="http://pets-images.dev-apis.com/pets/reptile2.jpg"
+          />
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-full bg-gradient-to-tr from-white to-transparent p-2"
+        >
+          <h2>
+            Laughton
+          </h2>
+          <p>
+            reptile — Havanese — Bridgeport, CT
+          </p>
+        </div>
+      </a>
+    </li>
+    <li
+      class="relative block"
+    >
+      <a
+        class="flex h-full w-full"
+        href="/details/8"
+      >
+        <div
+          class="flex h-full  w-full"
+        >
+          <img
+            alt="Si"
+            class="object-cover"
+            data-testid="thumbnail"
+            src="http://pets-images.dev-apis.com/pets/dog0.jpg"
+          />
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-full bg-gradient-to-tr from-white to-transparent p-2"
+        >
+          <h2>
+            Si
+          </h2>
+          <p>
+            dog — Lab — Charlotte, NC
+          </p>
+        </div>
+      </a>
+    </li>
+    <li
+      class="relative block"
+    >
+      <a
+        class="flex h-full w-full"
+        href="/details/9"
+      >
+        <div
+          class="flex h-full  w-full"
+        >
+          <img
+            alt="Lyda"
+            class="object-cover"
+            data-testid="thumbnail"
+            src="http://pets-images.dev-apis.com/pets/rabbit3.jpg"
+          />
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-full bg-gradient-to-tr from-white to-transparent p-2"
+        >
+          <h2>
+            Lyda
+          </h2>
+          <p>
+            rabbit — Lab — Springfield, IL
+          </p>
+        </div>
+      </a>
+    </li>
+    <li
+      class="relative block"
+    >
+      <a
+        class="flex h-full w-full"
+        href="/details/10"
+      >
+        <div
+          class="flex h-full  w-full"
+        >
+          <img
+            alt="Jackquelin"
+            class="object-cover"
+            data-testid="thumbnail"
+            src="http://pets-images.dev-apis.com/pets/dog1.jpg"
+          />
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-full bg-gradient-to-tr from-white to-transparent p-2"
+        >
+          <h2>
+            Jackquelin
+          </h2>
+          <p>
+            dog — Lab — Tucson, AZ
+          </p>
+        </div>
+      </a>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
