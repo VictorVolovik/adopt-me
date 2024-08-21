@@ -9,6 +9,7 @@ test("displays a default thumbnail", async () => {
       <PetItem />
     </StaticRouter>
   );
+
   const petThumbnail = await petItem.findByTestId("thumbnail");
   expect(petThumbnail.src).toContain("none.jpg");
   petItem.unmount();
@@ -20,6 +21,7 @@ test("displays a non-default thumbnail", async () => {
       <PetItem images={["1.jpg", "2.jpg", "3.jpg"]} />
     </StaticRouter>
   );
+
   const petThumbnail = await petItem.findByTestId("thumbnail");
   expect(petThumbnail.src).toContain("1.jpg");
   petItem.unmount();

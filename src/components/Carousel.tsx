@@ -34,6 +34,7 @@ class Carousel extends Component<CarouselProps> {
           className="h-96 w-96 object-cover"
           src={images[active]}
           alt="animal hero"
+          data-testid="hero"
         />
         <div className="flex h-fit w-full flex-wrap gap-4">
           {images.map((img, index) => (
@@ -41,7 +42,7 @@ class Carousel extends Component<CarouselProps> {
             <img
               className={`h-20 rounded-full ${
                 index === active
-                  ? "outline outline-4 outline-offset-1 outline-red-500"
+                  ? "active outline outline-4 outline-offset-1 outline-red-500"
                   : ""
               }`}
               key={img}
@@ -49,6 +50,7 @@ class Carousel extends Component<CarouselProps> {
               alt="animal thumbnail"
               onClick={this.handleIndexClick}
               data-index={index}
+              data-testid={`thumbnail-${index}`}
             />
           ))}
         </div>
