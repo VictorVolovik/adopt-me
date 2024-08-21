@@ -7,7 +7,7 @@ interface PetItemProps {
   name: string;
   animal: Animal;
   breed: string;
-  images: string[];
+  images?: string[];
   location: string;
 }
 
@@ -21,7 +21,7 @@ const PetItem = ({
 }: PetItemProps) => {
   let hero = `${IMAGES_URL}/pets/none.jpg`;
 
-  if (images.length) {
+  if (images?.length) {
     hero = images[0];
   }
 
@@ -29,7 +29,12 @@ const PetItem = ({
     <li className="relative block">
       <Link to={`/details/${id}`} className="flex h-full w-full">
         <div className="flex h-full  w-full">
-          <img className="object-cover" src={hero} alt={name} />
+          <img
+            data-testid="thumbnail"
+            className="object-cover"
+            src={hero}
+            alt={name}
+          />
         </div>
         <div className="absolute bottom-0 left-0 w-full bg-gradient-to-tr from-white to-transparent p-2">
           <h2>{name}</h2>
